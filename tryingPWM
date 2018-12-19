@@ -1,0 +1,15 @@
+#include "mbed.h"
+
+PwmOut myled(LED1);
+
+int main() {
+   while(1)
+   {
+   float i=1;
+    while(i>=0) {
+        myled = i;
+        wait(0.0166);
+        i-=0.004;
+        }
+}
+}
