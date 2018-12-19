@@ -1,0 +1,22 @@
+#include "mbed.h"
+
+DigitalOut red(LED1);
+DigitalOut green(LED2);
+DigitalOut blue(LED3);
+
+int main() {
+    while(1) {
+        red = 0;
+        wait(0.0166);
+        red = 1;
+        wait(0.0166);
+        green = 0;
+        wait(0.0166);
+        green = 1;
+        wait(0.0166);
+        blue = 0;
+        wait(0.0166);
+        blue = 1;
+        wait(0.0166);
+    }
+}
