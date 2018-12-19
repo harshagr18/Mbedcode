@@ -1,0 +1,29 @@
+#include "mbed.h"
+
+AnalogIn ain(PTC2);
+PwmOut red(LED1);
+PwmOut green(LED2);
+PwmOut blue(LED3);
+
+int main() {
+    while(1) {
+if(ain<0.33)
+{ 
+green=1;
+blue=1;
+red=ain*3;
+wait(0.0166);}
+if(ain>0.33&&ain<0.66)
+{
+red=1;
+blue=1; 
+green=(ain-0.33)*3;
+wait(0.0166);}
+if(ain>0.66)
+{
+     red=1;
+     green=1;
+     blue=(ain-0.66)*3;
+wait(0.0166);}
+    }
+}
