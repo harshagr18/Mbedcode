@@ -1,6 +1,7 @@
 #include "mbed.h"
 
 PwmOut myled(LED1);
+PwmOut myled2(LED3);
 
 int main() {
    while(1)
@@ -9,11 +10,13 @@ int main() {
    for(i=1;i>=0;i=i-0.008)
   {
         myled = i;
+        myled2 = i;
         wait(0.0166);
      }
      for(i=0;i<=1;i=i+0.008)
   {
         myled = i;
+        myled2 = i;
         wait(0.0166);
      }
 }
