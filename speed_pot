@@ -1,0 +1,29 @@
+#include "mbed.h"
+
+BusOut myled(PTC6,PTC5,PTC16,PTA16,PTA17,PTC10,PTC11,PTC13);
+AnalogIn pot(PTC2);
+
+int main() {
+    while(1) {
+myled=0x3F;
+wait(pot/2);
+myled=0x06;
+wait(pot/2);
+myled=0x5B;
+wait(pot/2);
+myled=0x4F;
+wait(pot/2);
+myled=0x66;
+wait(pot/2);
+myled=0x6D;
+wait(pot/2);
+myled=0x7D;
+wait(pot/2);
+myled=0x07;
+wait(pot/2);
+myled=0x7F;
+wait(pot/2);
+myled=0x67;
+wait(pot/2);
+    }
+}
