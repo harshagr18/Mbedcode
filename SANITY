@@ -1,0 +1,73 @@
+#include "mbed.h"
+#include "TSISensor.h"
+
+BusOut myled(PTC6,PTC5,PTC16,PTA16,PTA17,PTC10,PTC11,PTC13);
+TSISensor tsi;
+
+int main() {
+myled=0x3F;
+wait(0.5);
+     while(1) 
+    {
+if(tsi.readPercentage()!=0)
+{
+label: if(myled==0x67)
+{myled=0x3F;
+wait(0.5);}
+if(tsi.readPercentage()==0)
+break;
+if(myled==0x3F)
+{myled=0x06;
+wait(0.5);}
+if(tsi.readPercentage()==0)
+break;
+if(myled==0x06)
+{myled=0x5B;
+wait(0.5);}
+if(tsi.readPercentage()==0)
+break;
+if(myled==0x5B)
+{myled=0x4F;
+wait(0.5);}
+if(tsi.readPercentage()==0)
+break;
+if(myled==0x4F)
+{myled=0x66;
+wait(0.5);}
+if(tsi.readPercentage()==0)
+break;
+if(myled==0x66)
+{myled=0x6D;
+wait(0.5);}
+if(tsi.readPercentage()==0)
+break;
+if(myled==0x6D)
+{myled=0x7D;
+wait(0.5);}
+if(tsi.readPercentage()==0)
+break;
+if(myled==0x7D)
+{myled=0x07;
+wait(0.5);}
+if(tsi.readPercentage()==0)
+break;
+if(myled==0x07)
+{myled=0x7F;
+wait(0.5);}
+if(tsi.readPercentage()==0)
+break;
+if(myled==0x7F)
+{myled=0x67;
+wait(0.5);}
+if(tsi.readPercentage()==0)
+break;
+}
+}
+while(1)
+{
+    if(tsi.readPercentage()!=0)
+    {
+goto label;
+}
+}
+}
