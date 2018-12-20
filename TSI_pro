@@ -1,0 +1,19 @@
+#include "mbed.h"
+#include "TSISensor.h"
+
+PwmOut myled(LED1);
+TSISensor tsi;
+float i;
+int main() {
+    while(1) {
+        if(tsi.readPercentage()!=0)
+        {
+        i=tsi.readPercentage();
+        myled=i;
+        wait(0.0166);
+        }
+        else
+        {myled=i;
+        wait(0.0166);}
+    }
+}
