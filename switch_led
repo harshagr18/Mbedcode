@@ -1,0 +1,62 @@
+#include "mbed.h"
+BusOut myled(PTC6,PTC5,PTC16,PTA16,PTA17,PTC10,PTC11,PTC13);
+
+DigitalOut l1(PTC7);
+DigitalOut l2(PTC0);
+DigitalOut l3(PTC3);
+DigitalOut l4(PTC4);
+DigitalIn s1(PTA1);
+DigitalIn s2(PTA2);
+DigitalIn s3(PTD4);
+DigitalIn s4(PTA12);
+
+int main() {
+    myled=0x3F;
+    while(1) {
+       if(s1==0)
+       {
+           l1=0;
+           myled=0x06;
+           wait(0.0166);
+           myled=0x3F;
+       }
+        else
+        {
+            l1=1;
+        }
+       if(s2==0)
+       {
+           l2=0;
+           myled=0x5B;
+           wait(0.0166);
+           myled=0x3F;
+       }
+        else
+        {
+            l2=1;
+        }
+       if(s3==0)
+       {
+           l3=0;
+           myled=0x4F;
+           wait(0.0166);
+           myled=0x3F;
+       }
+        else
+        {
+            l3=1;
+        }
+       if(s4==0)
+       {
+           l4=0;
+           myled=0x66;
+           wait(0.0166);
+           myled=0x3F;
+       }
+        else
+        {
+            l4=1;
+        }
+            
+    }
+}
