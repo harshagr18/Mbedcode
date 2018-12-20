@@ -1,0 +1,44 @@
+#include "mbed.h"
+#include "TSISensor.h"
+
+BusOut myled(PTC6,PTC5,PTC16,PTA16,PTA17,PTC10,PTC11,PTC13);
+TSISensor tsi;
+
+int main() {
+    while(1) 
+    {
+if(tsi.readPercentage()!=0)
+{
+if(tsi.readPercentage()<=0.1)
+{myled=0x3F;
+wait(0.0166);}
+if(tsi.readPercentage()<=0.2 && tsi.readPercentage() >0.1)
+{myled=0x06;
+wait(0.0166);}
+if(tsi.readPercentage()<=0.3 && tsi.readPercentage() >0.2)
+{myled=0x5B;
+wait(0.0166);}
+if(tsi.readPercentage()<=0.4 && tsi.readPercentage() >0.3)
+{myled=0x4F;
+wait(0.0166);}
+if(tsi.readPercentage()<=0.5 && tsi.readPercentage() >0.4)
+{myled=0x66;
+wait(0.0166);}
+if(tsi.readPercentage()<=0.6 && tsi.readPercentage() >0.5)
+{myled=0x6D;
+wait(0.0166);}
+if(tsi.readPercentage()<=0.7 && tsi.readPercentage() >0.6)
+{myled=0x7D;
+wait(0.0166);}
+if(tsi.readPercentage()<=0.8 && tsi.readPercentage() >0.7)
+{myled=0x07;
+wait(0.0166);}
+if(tsi.readPercentage()<=0.9 && tsi.readPercentage() >0.8)
+{myled=0x7F;
+wait(0.0166);}
+if(tsi.readPercentage()>0.9)
+{myled=0x67;
+wait(0.0166);}
+  }
+ }
+}
