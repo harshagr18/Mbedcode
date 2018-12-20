@@ -11,6 +11,6 @@ int main() {
         wait(0.0166);
         }
         else
-        {led=1;}
+        {myled=1;}
     }
 }
