@@ -1,0 +1,56 @@
+#include "mbed.h"
+#include "TextLCD.h"
+#include "stdio.h"
+#include "TSISensor.h"
+TSISensor tsi;
+
+TextLCD lcd(PTC9, PTC8,PTA5,PTA4,PTA12,PTD4,TextLCD::LCD16x2);
+char buff[15] = {'\0'};
+float health=10;
+DigitalOut buzzer(PTC2);
+int j=100;
+
+int main() {
+    while(1) {
+        j=100;
+        lcd.locate(7,1);
+        sprintf(buff,"%2f",health);
+        lcd.printf(buff);
+        wait(0.0166);
+        if(tsi.readPercentage()!=0)
+        health--;
+        wait(0.0166);
+        if(health<=0)
+         {
+        wait(0.5);     
+        buzzer=1;
+        wait(0.0166); 
+          buzzer=0;
+          wait(0.5);
+          buzzer=1;
+        wait(0.0166);
+          buzzer=0;
+          wait(0.25);
+          buzzer=1;
+        wait(0.0166);
+          buzzer=0;
+          wait(0.25);
+          buzzer=1;
+        wait(0.0166);
+          buzzer=0;
+          wait(0.5);
+          buzzer=1;
+        wait(0.0166);
+          buzzer=0;
+          wait(1);
+          buzzer=1;
+        wait(0.0166);
+          buzzer=0;
+          wait(0.5);
+          buzzer=1;
+        wait(0.0166);
+          buzzer=0;
+          wait(2);
+         }
+}
+}
