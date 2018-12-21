@@ -1,0 +1,19 @@
+#include "mbed.h"
+#include "TextLCD.h"
+#include "stdio.h"
+
+AnalogIn ain(PTC2);
+TextLCD lcd(PTC9,PTC8,PTA5,PTA4,PTA12,PTD4,TextLCD::LCD16x2);  //Rs,Enabled,data,type
+char buff[15] = {'\0'};
+float i=0;
+int main()
+{
+    lcd.cls();
+    while(1)
+    {
+        i=ain*3.3;
+        lcd.locate(7,1);
+        sprintf(buff,"%2f",i);
+        lcd.printf(buff);
+    }
+}
