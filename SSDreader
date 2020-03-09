@@ -22,7 +22,7 @@ myled=0x07;
 wait(0.5);
 myled=0x7F;
 wait(0.5);
-myled=0x3F;
+myled=0x6F;
 wait(0.5);
     }
 }
